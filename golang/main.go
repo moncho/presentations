@@ -3,9 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	world := "world"
+	greeted := "world"
 	var greeter string
 	greeter = "Gopher"
 
-	fmt.Printf("Hi %s, my name is %s", world, greeter)
+	fmt.Printf("Hi %s, my name is %s", greeted, greeter)
 }

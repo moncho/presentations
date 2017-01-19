@@ -1,31 +1,60 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
 
-// START OMIT
+func init() {
+	rand.Seed(time.Now().UnixNano())
+}
+
 type person string
 
-//Greeter interface for greeters
+// START OMIT
 type Greeter interface {
 	Greet(person)
 }
-
-func greet(g Greeter, somebody person) {
-	g.Greet(somebody)
+type Kicker interface {
+	Kick(person)
 }
 
-func main() {
-	greet(PoliteGreeter{name: "Gopher"}, "world")
+type Bouncer struct {
+	name string
+}
+
+func (g Bouncer) Greet(somebody person) {
+	fmt.Printf("%s says: welcome %s", g.name, somebody)
+}
+
+func (g Bouncer) Kick(somebody person) {
+	fmt.Printf("%s says: get the $$$$ out of here, you %s", g.name, somebody)
+}
+
+func (g Bouncer) isInGoodMood() bool {
+	return rand.Intn(2) != 0
 }
 
 //END OMIT
 
-//PoliteGreeter says hi to people
-type PoliteGreeter struct {
-	name string
+// START 2OMIT
+
+func in(g Greeter, somebody person) {
+	g.Greet(somebody)
+}
+func nope(g Kicker, somebody person) {
+	g.Kick(somebody)
 }
 
-//Greet says hi to the given name
-func (g PoliteGreeter) Greet(somebody person) {
-	fmt.Printf("Hi %s, my name is %s", somebody, g.name)
+func main() {
+	b := Bouncer{name: "Gopher"}
+	somebody := person("FunnyGuy")
+	if b.isInGoodMood() {
+		in(b, somebody)
+	} else {
+		nope(b, somebody)
+	}
 }
+
+//END 2OMIT

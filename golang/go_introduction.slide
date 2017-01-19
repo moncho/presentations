@@ -1,9 +1,12 @@
 Go
 The programming language you should be learning
-11 Jan 2017
+
+
+20 Jan 2017
+
+
 
 Moncho
-
 * Agenda
 
 - Introduction
@@ -40,8 +43,8 @@ Moncho
 Hello world:
 .play main.go /func main/,/^}/
 
-Types and methods
-.play greeter.go /START OMIT/,/END OMIT/
+* Types and methods
+.play greeter.go
 
 .caption [[https://golang.org/ref/spec][Language spec]]
 
@@ -51,48 +54,63 @@ Types and methods
 
 : Go favors composition over inheritance.
 
-To implement an interface, it is enough to implement the methods that are defined by the interface.
+Go has no type hierarchy, it has interfaces.
 
-.play interfaces.go /START OMIT/,/END OMIT/
+An interface is satisfied by a type if all its methods are implemented.
+
+.code interfaces.go /START OMIT/,/END OMIT/
+
+* Interfaces (II)
+
+.play interfaces.go /START 2OMIT/,/END 2OMIT/
+
 
 .caption [[https://golang.org/doc/effective_go.html#interfaces][Effective Go interfaces]]
 
-* Pointers
-
-
-
 * Error handling
 
-"Don't just check errors, handle them gracefully."
+: "Don't just check errors, handle them gracefully."
 
 There are no exceptions. Error are represented by a pre-defined interface type called *error*.
 
+.caption [[https://blog.golang.org/errors-are-values][Errors are values]]
 * Concurrency
 
 Go's approach to concurrency is based on [[CSP][https://en.wikipedia.org/wiki/Communicating_sequential_processes]]
 
 In Go, concurrency has three elements:
+
 : Concurrency is the ability to write your program as independently executing pieces.
 
 - goroutines (execution)
 - channels (communication)
 - `select` (coordination)
 
+* Concurrency (II)
 
-* More cool stuff
+* It is the (not always) little things
 
 - Code visibility outside a package is determined by whether its first character is upper case
 - Functions as first-class citizens
 - Type alias
-- Go code compiles to a single binary
-- Multi-platform.
+- The Go compiler generates a single binary
+- And cross compiles
+- Gofmt. No more format wars
+- Install dependencies with go get (a bit controversial)
+
+* What now
+
+git rm nlp; vi main.go
+
+
 
 * Software built with Go
 
+Go is becoming the language of choice to build system software. A few examples:
+
 - Kubernetes
 - Docker
-- Hashicorp stuff
-- Dry
+- Hashicorp (Consul, Terraform, Vault, Nomad)
 
 * Resources
 
@@ -107,3 +125,5 @@ In Go, concurrency has three elements:
 
 
 * QA
+
+* The prestige

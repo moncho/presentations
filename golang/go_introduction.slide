@@ -23,6 +23,7 @@ Moncho
 : Single "tree", build (even wit a custom distributed system) is big.
 : Created to solve software engineering problem, it is not the result of an academic effort to create a new language.
 
+- Go version 1 was released on 28 March 2012.
 - Current stable version is 1.7, 1.8 to be released on Jan, 31.
 
 .caption [[https://talks.golang.org/2012/splash.article][Go conception]]
@@ -39,6 +40,7 @@ Moncho
 
 *Go* has a clean syntax and a reduced grammar (25 keywords).
 
+
 : Familiar to C and C++ programmers. So it should be kind of familiar to Java programmers as well.
 : Declarations are read left to right
 : Return type of a function is at the end
@@ -49,7 +51,6 @@ Hello world:
 
 * Types and methods
 : type declaration
-: type alias
 : method declaration
 : type assertion
 .play greeter.go
@@ -104,7 +105,7 @@ In Go, concurrency has three elements:
 - channels (communication)
 - `select` (coordination)
 
-Easy analogy for Java developers, goroutines are very light-weight threads.
+Easy analogy for Java developers, goroutines are lightweight threads.
 
 But is a bit more than that, and the result is that they are much more cheaper to create and to switch between as it all happens in user space.
 
@@ -122,22 +123,29 @@ But is a bit more than that, and the result is that they are much more cheaper t
 .play concurrency.go /START OMIT/,/END OMIT/
 
 
-* Beauty is in the (not always so) little details
+* More things that I like, in no particular order
 
 - Code visibility outside a package is determined by whether its first character is upper case
 - Functions as first-class citizens
-- Type alias
+- Type declarations
 - The Go compiler generates a single binary
 - And cross compiles
 - Gofmt. No more format wars
-- Install dependencies with go get (a bit controversial)
+- Install dependencies with `go get` (not always a good thing)
 - And no semicolons, cant beat that
 
 * What now
 
-git rm nlp; vi main.go
+: Remove existing code base and start over with go
 
+Install [[https://golang.org/doc/install#install][Go]] and start coding right away.
 
+Or you can take a [[https://tour.golang.org/welcome/1][Tour]] and look at [[https://gobyexample.com/][examples]].
+
+There are a number of online courses. I have heard good things about these ones, but I have not tried them:
+
+- [[http://shop.oreilly.com/category/learning-path/go-fundamentals.do]]
+- [[https://www.codeschool.com/courses/on-track-with-golang]]
 
 * Software built with Go
 

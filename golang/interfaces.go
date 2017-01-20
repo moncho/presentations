@@ -49,7 +49,7 @@ func nope(g Kicker, somebody person) {
 
 func main() {
 	b := Bouncer{name: "Gopher"}
-	somebody := person("FunnyGuy")
+	var somebody person = "FunnyGuy"
 	if b.isInGoodMood() {
 		in(b, somebody)
 	} else {
